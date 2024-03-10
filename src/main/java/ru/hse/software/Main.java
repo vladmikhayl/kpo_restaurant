@@ -19,6 +19,9 @@ public class Main {
         RestaurantRepository restaurantDataBase;
         try {
             restaurantDataBase = new RestaurantDataBase(args[0]);
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println("В аргументы командной строки нужно указать путь к базе данных!");
+            return;
         } catch (DataBaseSerializingException ex) {
             System.out.printf("Ошибка! %s\n", ex.getMessage());
             return;
